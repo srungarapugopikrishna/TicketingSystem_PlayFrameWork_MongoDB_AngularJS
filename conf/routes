@@ -1,0 +1,15 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.Application.index()
+GET     /Log_Ticket          controllers.Application.Log_Ticket_Page()
+GET     /Main_Menu          controllers.Application.main_menu()
+POST     /TestPage1           controllers.Application.Log_Ticket()
+GET /View_Tickets                          controllers.Application.Dislpay_Tickets()
+GET     /Assign_Ticket          controllers.Application.Assign_Ticket_Page()
+
+POST    /Emp_Funcs                     controllers.Application.log_in_Validation()
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)

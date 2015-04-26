@@ -1,0 +1,33 @@
+@(userTicket: Form[Ticket])
+@import helper._
+@import helper.twitterBootstrap._
+<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+
+@empid={@Http.Context.current().args.get("empID").asInstanceOf[String]}
+
+@main("Example"){
+<h1>A very Simple Form</h1>
+<div ng-app="">
+    @helper.form(action=routes.Application.Log_Ticket(),'id -> "userTicket"){
+   Customer ID: <input type="text" class="form-control" ng-model="custid"
+           name="@userTicket("custid").name"
+           id="@userTicket("custid").id"
+           value="@userTicket("custid").value"
+           placeholder="custid"><br><br>
+
+    <input type="hidden" class="form-control" ng-model="empid"
+           name="@userTicket("empid").name"
+           id="@userTicket("empid").id"
+           value=@empid>
+    Log Depts :<input type="text" class="form-control" ng-model="logdepts"
+           name="@userTicket("logdepts").name"
+    id="@userTicket("logdepts").id"
+    value="@userTicket("logdepts").value"
+    placeholder="logdepts"><br>[use comma(,) to differentiate departmentsEx:dept001,dept005,...]<br>
+
+    <input type="submit" class="btn primary" value="Send">
+    <p ng-bind="username"></p>
+    <p ng-bind="pwd"></p>
+</div>
+}
+}
